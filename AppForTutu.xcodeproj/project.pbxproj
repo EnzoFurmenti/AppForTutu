@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96195B011C77055400C5D0C2 /* allStation.json in Resources */ = {isa = PBXBuildFile; fileRef = 96195B001C77055400C5D0C2 /* allStation.json */; };
+		964678DD1C886418007DB2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964678DC1C886418007DB2B2 /* Main.storyboard */; };
+		965A86EC1C99A8A9008C54E3 /* tutu29.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86EB1C99A8A9008C54E3 /* tutu29.png */; };
+		965A86F51C99AACE008C54E3 /* tutu60-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F31C99AACE008C54E3 /* tutu60-2.png */; };
+		965A86F61C99AACE008C54E3 /* tutu60.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F41C99AACE008C54E3 /* tutu60.png */; };
+		965A86F81C99AB65008C54E3 /* tutu90.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F71C99AB65008C54E3 /* tutu90.png */; };
+		965A86FD1C99AC35008C54E3 /* tutu40.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86FA1C99AC35008C54E3 /* tutu40.png */; };
+		965A87001C99ACA7008C54E3 /* tutu43,5.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86FF1C99ACA7008C54E3 /* tutu43,5.png */; };
+		965A87041C9ADB79008C54E3 /* calendar-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A87031C9ADB79008C54E3 /* calendar-10.png */; };
 		96745D261C75E5B800710530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D251C75E5B800710530 /* main.m */; };
 		96745D291C75E5B800710530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D281C75E5B800710530 /* AppDelegate.m */; };
-		96745D2C1C75E5B800710530 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D2B1C75E5B800710530 /* ViewController.m */; };
-		96745D2F1C75E5B800710530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96745D2D1C75E5B800710530 /* Main.storyboard */; };
 		96745D311C75E5B800710530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96745D301C75E5B800710530 /* Assets.xcassets */; };
 		96745D341C75E5B800710530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96745D321C75E5B800710530 /* LaunchScreen.storyboard */; };
 		96745D3F1C75E5B800710530 /* AppForTutuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D3E1C75E5B800710530 /* AppForTutuTests.m */; };
 		96745D4A1C75E5B800710530 /* AppForTutuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D491C75E5B800710530 /* AppForTutuUITests.m */; };
+		96745D591C75E5E300710530 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D581C75E5E300710530 /* MainViewController.m */; };
+		96745D5C1C75F0D500710530 /* TimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D5B1C75F0D500710530 /* TimeTableViewController.m */; };
+		96745D5F1C75F12200710530 /* InfoAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D5E1C75F12200710530 /* InfoAppViewController.m */; };
+		96745D621C75F3E100710530 /* JSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D611C75F3E100710530 /* JSONData.m */; };
+		96BEEE341C81E6420059038D /* SearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BEEE331C81E6420059038D /* SearchData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +47,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96195B001C77055400C5D0C2 /* allStation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = allStation.json; path = ../allStation.json; sourceTree = "<group>"; };
+		964678DC1C886418007DB2B2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../Main.storyboard; sourceTree = "<group>"; };
+		965A86EB1C99A8A9008C54E3 /* tutu29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu29.png; path = ../../tutu29.png; sourceTree = "<group>"; };
+		965A86F31C99AACE008C54E3 /* tutu60-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutu60-2.png"; path = "../../tutu60-2.png"; sourceTree = "<group>"; };
+		965A86F41C99AACE008C54E3 /* tutu60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu60.png; path = ../../tutu60.png; sourceTree = "<group>"; };
+		965A86F71C99AB65008C54E3 /* tutu90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu90.png; path = ../../tutu90.png; sourceTree = "<group>"; };
+		965A86FA1C99AC35008C54E3 /* tutu40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu40.png; path = ../../tutu40.png; sourceTree = "<group>"; };
+		965A86FF1C99ACA7008C54E3 /* tutu43,5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutu43,5.png"; path = "../../tutu43,5.png"; sourceTree = "<group>"; };
+		965A87031C9ADB79008C54E3 /* calendar-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-10.png"; path = "../../calendar-10.png"; sourceTree = "<group>"; };
 		96745D211C75E5B800710530 /* AppForTutu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppForTutu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96745D251C75E5B800710530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96745D271C75E5B800710530 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96745D281C75E5B800710530 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		96745D2A1C75E5B800710530 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		96745D2B1C75E5B800710530 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		96745D2E1C75E5B800710530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96745D301C75E5B800710530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96745D331C75E5B800710530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96745D351C75E5B800710530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +69,16 @@
 		96745D451C75E5B800710530 /* AppForTutuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppForTutuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96745D491C75E5B800710530 /* AppForTutuUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppForTutuUITests.m; sourceTree = "<group>"; };
 		96745D4B1C75E5B800710530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96745D571C75E5E300710530 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		96745D581C75E5E300710530 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		96745D5A1C75F0D500710530 /* TimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableViewController.h; sourceTree = "<group>"; };
+		96745D5B1C75F0D500710530 /* TimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableViewController.m; sourceTree = "<group>"; };
+		96745D5D1C75F12200710530 /* InfoAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAppViewController.h; sourceTree = "<group>"; };
+		96745D5E1C75F12200710530 /* InfoAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAppViewController.m; sourceTree = "<group>"; };
+		96745D601C75F3E100710530 /* JSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONData.h; sourceTree = "<group>"; };
+		96745D611C75F3E100710530 /* JSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONData.m; sourceTree = "<group>"; };
+		96BEEE321C81E6420059038D /* SearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchData.h; sourceTree = "<group>"; };
+		96BEEE331C81E6420059038D /* SearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +109,7 @@
 		96745D181C75E5B700710530 = {
 			isa = PBXGroup;
 			children = (
+				967877311C99953900762857 /* Icon */,
 				96745D231C75E5B800710530 /* AppForTutu */,
 				96745D3D1C75E5B800710530 /* AppForTutuTests */,
 				96745D481C75E5B800710530 /* AppForTutuUITests */,
@@ -101,11 +130,14 @@
 		96745D231C75E5B800710530 /* AppForTutu */ = {
 			isa = PBXGroup;
 			children = (
-				96745D271C75E5B800710530 /* AppDelegate.h */,
-				96745D281C75E5B800710530 /* AppDelegate.m */,
-				96745D2A1C75E5B800710530 /* ViewController.h */,
-				96745D2B1C75E5B800710530 /* ViewController.m */,
-				96745D2D1C75E5B800710530 /* Main.storyboard */,
+				96745D651C75F72B00710530 /* Resourses */,
+				96745D5D1C75F12200710530 /* InfoAppViewController.h */,
+				96745D5E1C75F12200710530 /* InfoAppViewController.m */,
+				96745D571C75E5E300710530 /* MainViewController.h */,
+				96745D581C75E5E300710530 /* MainViewController.m */,
+				96745D5A1C75F0D500710530 /* TimeTableViewController.h */,
+				96745D5B1C75F0D500710530 /* TimeTableViewController.m */,
+				964678DC1C886418007DB2B2 /* Main.storyboard */,
 				96745D301C75E5B800710530 /* Assets.xcassets */,
 				96745D321C75E5B800710530 /* LaunchScreen.storyboard */,
 				96745D351C75E5B800710530 /* Info.plist */,
@@ -117,7 +149,14 @@
 		96745D241C75E5B800710530 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				96195B001C77055400C5D0C2 /* allStation.json */,
+				96745D601C75F3E100710530 /* JSONData.h */,
+				96745D611C75F3E100710530 /* JSONData.m */,
+				96745D271C75E5B800710530 /* AppDelegate.h */,
+				96745D281C75E5B800710530 /* AppDelegate.m */,
 				96745D251C75E5B800710530 /* main.m */,
+				96BEEE321C81E6420059038D /* SearchData.h */,
+				96BEEE331C81E6420059038D /* SearchData.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +177,28 @@
 				96745D4B1C75E5B800710530 /* Info.plist */,
 			);
 			path = AppForTutuUITests;
+			sourceTree = "<group>";
+		};
+		96745D651C75F72B00710530 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resourses;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		967877311C99953900762857 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				965A87031C9ADB79008C54E3 /* calendar-10.png */,
+				965A86F31C99AACE008C54E3 /* tutu60-2.png */,
+				965A86FF1C99ACA7008C54E3 /* tutu43,5.png */,
+				965A86FA1C99AC35008C54E3 /* tutu40.png */,
+				965A86F41C99AACE008C54E3 /* tutu60.png */,
+				965A86EB1C99A8A9008C54E3 /* tutu29.png */,
+				965A86F71C99AB65008C54E3 /* tutu90.png */,
+			);
+			name = Icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +268,7 @@
 				TargetAttributes = {
 					96745D201C75E5B800710530 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FTL8887NNR;
 					};
 					96745D391C75E5B800710530 = {
 						CreatedOnToolsVersion = 7.2;
@@ -244,8 +306,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				96745D341C75E5B800710530 /* LaunchScreen.storyboard in Resources */,
+				965A86EC1C99A8A9008C54E3 /* tutu29.png in Resources */,
 				96745D311C75E5B800710530 /* Assets.xcassets in Resources */,
-				96745D2F1C75E5B800710530 /* Main.storyboard in Resources */,
+				96195B011C77055400C5D0C2 /* allStation.json in Resources */,
+				965A86FD1C99AC35008C54E3 /* tutu40.png in Resources */,
+				965A86F81C99AB65008C54E3 /* tutu90.png in Resources */,
+				965A86F51C99AACE008C54E3 /* tutu60-2.png in Resources */,
+				965A86F61C99AACE008C54E3 /* tutu60.png in Resources */,
+				964678DD1C886418007DB2B2 /* Main.storyboard in Resources */,
+				965A87041C9ADB79008C54E3 /* calendar-10.png in Resources */,
+				965A87001C99ACA7008C54E3 /* tutu43,5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +340,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96745D2C1C75E5B800710530 /* ViewController.m in Sources */,
 				96745D291C75E5B800710530 /* AppDelegate.m in Sources */,
+				96745D591C75E5E300710530 /* MainViewController.m in Sources */,
+				96745D5C1C75F0D500710530 /* TimeTableViewController.m in Sources */,
+				96745D5F1C75F12200710530 /* InfoAppViewController.m in Sources */,
 				96745D261C75E5B800710530 /* main.m in Sources */,
+				96745D621C75F3E100710530 /* JSONData.m in Sources */,
+				96BEEE341C81E6420059038D /* SearchData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +382,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		96745D2D1C75E5B800710530 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96745D2E1C75E5B800710530 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		96745D321C75E5B800710530 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,10 +477,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppForTutu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.AppForTutu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -422,10 +492,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppForTutu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.AppForTutu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -496,6 +570,7 @@
 				96745D501C75E5B800710530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96745D511C75E5B800710530 /* Build configuration list for PBXNativeTarget "AppForTutuTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +579,7 @@
 				96745D531C75E5B800710530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96745D541C75E5B800710530 /* Build configuration list for PBXNativeTarget "AppForTutuUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +588,7 @@
 				96745D561C75E5B800710530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
