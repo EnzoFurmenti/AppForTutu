@@ -21,13 +21,13 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "tutu60-2.png",
+      "filename" : "tutu60.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "tutu60.png",
+      "filename" : "tutu60-2.png",
       "scale" : "2x"
     },
     {

@@ -181,13 +181,13 @@
 		96745D651C75F72B00710530 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				967877311C99953900762857 /* Icon */,
+				967877311C99953900762857 /* Icons */,
 			);
 			name = Resourses;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		967877311C99953900762857 /* Icon */ = {
+		967877311C99953900762857 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
 				96E379B21CA2C0D900DA9B84 /* tutu60.png */,
@@ -198,7 +198,6 @@
 				96E379B71CA2C0D900DA9B84 /* tutu29.png */,
 				96E379B81CA2C0D900DA9B84 /* tutu43,5.png */,
 			);
-			name = Icon;
 			path = Icons;
 			sourceTree = "<group>";
 		};
