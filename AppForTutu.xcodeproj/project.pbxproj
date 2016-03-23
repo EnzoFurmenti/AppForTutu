@@ -109,7 +109,6 @@
 		96745D181C75E5B700710530 = {
 			isa = PBXGroup;
 			children = (
-				967877311C99953900762857 /* Icon */,
 				96745D231C75E5B800710530 /* AppForTutu */,
 				96745D3D1C75E5B800710530 /* AppForTutuTests */,
 				96745D481C75E5B800710530 /* AppForTutuUITests */,
@@ -149,6 +148,7 @@
 		96745D241C75E5B800710530 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				967877311C99953900762857 /* Icon */,
 				96195B001C77055400C5D0C2 /* allStation.json */,
 				96745D601C75F3E100710530 /* JSONData.h */,
 				96745D611C75F3E100710530 /* JSONData.m */,
@@ -199,6 +199,7 @@
 				965A86F71C99AB65008C54E3 /* tutu90.png */,
 			);
 			name = Icon;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
