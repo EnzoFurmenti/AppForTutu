@@ -129,7 +129,6 @@
 		96745D231C75E5B800710530 /* AppForTutu */ = {
 			isa = PBXGroup;
 			children = (
-				967877311C99953900762857 /* Icons */,
 				96745D651C75F72B00710530 /* Resourses */,
 				96745D5D1C75F12200710530 /* InfoAppViewController.h */,
 				96745D5E1C75F12200710530 /* InfoAppViewController.m */,
@@ -182,6 +181,7 @@
 		96745D651C75F72B00710530 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				967877311C99953900762857 /* Icons */,
 			);
 			name = Resourses;
 			path = ..;
@@ -198,8 +198,7 @@
 				96E379B71CA2C0D900DA9B84 /* tutu29.png */,
 				96E379B81CA2C0D900DA9B84 /* tutu43,5.png */,
 			);
-			name = Icons;
-			path = ../Icons;
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
