@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		96195B011C77055400C5D0C2 /* allStation.json in Resources */ = {isa = PBXBuildFile; fileRef = 96195B001C77055400C5D0C2 /* allStation.json */; };
-		965A86EC1C99A8A9008C54E3 /* tutu29.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86EB1C99A8A9008C54E3 /* tutu29.png */; };
-		965A86F51C99AACE008C54E3 /* tutu60-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F31C99AACE008C54E3 /* tutu60-2.png */; };
-		965A86F61C99AACE008C54E3 /* tutu60.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F41C99AACE008C54E3 /* tutu60.png */; };
-		965A86F81C99AB65008C54E3 /* tutu90.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86F71C99AB65008C54E3 /* tutu90.png */; };
-		965A86FD1C99AC35008C54E3 /* tutu40.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86FA1C99AC35008C54E3 /* tutu40.png */; };
-		965A87001C99ACA7008C54E3 /* tutu43,5.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A86FF1C99ACA7008C54E3 /* tutu43,5.png */; };
-		965A87041C9ADB79008C54E3 /* calendar-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 965A87031C9ADB79008C54E3 /* calendar-10.png */; };
 		96745D261C75E5B800710530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D251C75E5B800710530 /* main.m */; };
 		96745D291C75E5B800710530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D281C75E5B800710530 /* AppDelegate.m */; };
 		96745D311C75E5B800710530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96745D301C75E5B800710530 /* Assets.xcassets */; };
@@ -27,6 +20,13 @@
 		96745D621C75F3E100710530 /* JSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D611C75F3E100710530 /* JSONData.m */; };
 		96BEEE341C81E6420059038D /* SearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BEEE331C81E6420059038D /* SearchData.m */; };
 		96E379B11CA2BD8F00DA9B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E379AF1CA2BD8F00DA9B84 /* Main.storyboard */; };
+		96E379B91CA2C0D900DA9B84 /* tutu60.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B21CA2C0D900DA9B84 /* tutu60.png */; };
+		96E379BA1CA2C0D900DA9B84 /* calendar-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B31CA2C0D900DA9B84 /* calendar-10.png */; };
+		96E379BB1CA2C0D900DA9B84 /* tutu40.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B41CA2C0D900DA9B84 /* tutu40.png */; };
+		96E379BC1CA2C0D900DA9B84 /* tutu90.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B51CA2C0D900DA9B84 /* tutu90.png */; };
+		96E379BD1CA2C0D900DA9B84 /* tutu60-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B61CA2C0D900DA9B84 /* tutu60-2.png */; };
+		96E379BE1CA2C0D900DA9B84 /* tutu29.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B71CA2C0D900DA9B84 /* tutu29.png */; };
+		96E379BF1CA2C0D900DA9B84 /* tutu43,5.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E379B81CA2C0D900DA9B84 /* tutu43,5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,13 +48,6 @@
 
 /* Begin PBXFileReference section */
 		96195B001C77055400C5D0C2 /* allStation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = allStation.json; path = ../allStation.json; sourceTree = "<group>"; };
-		965A86EB1C99A8A9008C54E3 /* tutu29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu29.png; path = ../../tutu29.png; sourceTree = "<group>"; };
-		965A86F31C99AACE008C54E3 /* tutu60-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutu60-2.png"; path = "../../tutu60-2.png"; sourceTree = "<group>"; };
-		965A86F41C99AACE008C54E3 /* tutu60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu60.png; path = ../../tutu60.png; sourceTree = "<group>"; };
-		965A86F71C99AB65008C54E3 /* tutu90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu90.png; path = ../../tutu90.png; sourceTree = "<group>"; };
-		965A86FA1C99AC35008C54E3 /* tutu40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutu40.png; path = ../../tutu40.png; sourceTree = "<group>"; };
-		965A86FF1C99ACA7008C54E3 /* tutu43,5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tutu43,5.png"; path = "../../tutu43,5.png"; sourceTree = "<group>"; };
-		965A87031C9ADB79008C54E3 /* calendar-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-10.png"; path = "../../calendar-10.png"; sourceTree = "<group>"; };
 		96745D211C75E5B800710530 /* AppForTutu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppForTutu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96745D251C75E5B800710530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96745D271C75E5B800710530 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +72,13 @@
 		96BEEE321C81E6420059038D /* SearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchData.h; sourceTree = "<group>"; };
 		96BEEE331C81E6420059038D /* SearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchData.m; sourceTree = "<group>"; };
 		96E379B01CA2BD8F00DA9B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96E379B21CA2C0D900DA9B84 /* tutu60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutu60.png; sourceTree = "<group>"; };
+		96E379B31CA2C0D900DA9B84 /* calendar-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-10.png"; sourceTree = "<group>"; };
+		96E379B41CA2C0D900DA9B84 /* tutu40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutu40.png; sourceTree = "<group>"; };
+		96E379B51CA2C0D900DA9B84 /* tutu90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutu90.png; sourceTree = "<group>"; };
+		96E379B61CA2C0D900DA9B84 /* tutu60-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutu60-2.png"; sourceTree = "<group>"; };
+		96E379B71CA2C0D900DA9B84 /* tutu29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutu29.png; sourceTree = "<group>"; };
+		96E379B81CA2C0D900DA9B84 /* tutu43,5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutu43,5.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +129,7 @@
 		96745D231C75E5B800710530 /* AppForTutu */ = {
 			isa = PBXGroup;
 			children = (
+				967877311C99953900762857 /* Icons */,
 				96745D651C75F72B00710530 /* Resourses */,
 				96745D5D1C75F12200710530 /* InfoAppViewController.h */,
 				96745D5E1C75F12200710530 /* InfoAppViewController.m */,
@@ -148,7 +149,6 @@
 		96745D241C75E5B800710530 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				967877311C99953900762857 /* Icon */,
 				96195B001C77055400C5D0C2 /* allStation.json */,
 				96745D601C75F3E100710530 /* JSONData.h */,
 				96745D611C75F3E100710530 /* JSONData.m */,
@@ -187,19 +187,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		967877311C99953900762857 /* Icon */ = {
+		967877311C99953900762857 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				965A87031C9ADB79008C54E3 /* calendar-10.png */,
-				965A86F31C99AACE008C54E3 /* tutu60-2.png */,
-				965A86FF1C99ACA7008C54E3 /* tutu43,5.png */,
-				965A86FA1C99AC35008C54E3 /* tutu40.png */,
-				965A86F41C99AACE008C54E3 /* tutu60.png */,
-				965A86EB1C99A8A9008C54E3 /* tutu29.png */,
-				965A86F71C99AB65008C54E3 /* tutu90.png */,
+				96E379B21CA2C0D900DA9B84 /* tutu60.png */,
+				96E379B31CA2C0D900DA9B84 /* calendar-10.png */,
+				96E379B41CA2C0D900DA9B84 /* tutu40.png */,
+				96E379B51CA2C0D900DA9B84 /* tutu90.png */,
+				96E379B61CA2C0D900DA9B84 /* tutu60-2.png */,
+				96E379B71CA2C0D900DA9B84 /* tutu29.png */,
+				96E379B81CA2C0D900DA9B84 /* tutu43,5.png */,
 			);
-			name = Icon;
-			path = ..;
+			name = Icons;
+			path = ../Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,17 +306,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E379BC1CA2C0D900DA9B84 /* tutu90.png in Resources */,
+				96E379BF1CA2C0D900DA9B84 /* tutu43,5.png in Resources */,
 				96745D341C75E5B800710530 /* LaunchScreen.storyboard in Resources */,
-				965A86EC1C99A8A9008C54E3 /* tutu29.png in Resources */,
+				96E379BB1CA2C0D900DA9B84 /* tutu40.png in Resources */,
+				96E379B91CA2C0D900DA9B84 /* tutu60.png in Resources */,
+				96E379BA1CA2C0D900DA9B84 /* calendar-10.png in Resources */,
 				96745D311C75E5B800710530 /* Assets.xcassets in Resources */,
+				96E379BE1CA2C0D900DA9B84 /* tutu29.png in Resources */,
 				96E379B11CA2BD8F00DA9B84 /* Main.storyboard in Resources */,
+				96E379BD1CA2C0D900DA9B84 /* tutu60-2.png in Resources */,
 				96195B011C77055400C5D0C2 /* allStation.json in Resources */,
-				965A86FD1C99AC35008C54E3 /* tutu40.png in Resources */,
-				965A86F81C99AB65008C54E3 /* tutu90.png in Resources */,
-				965A86F51C99AACE008C54E3 /* tutu60-2.png in Resources */,
-				965A86F61C99AACE008C54E3 /* tutu60.png in Resources */,
-				965A87041C9ADB79008C54E3 /* calendar-10.png in Resources */,
-				965A87001C99ACA7008C54E3 /* tutu43,5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
