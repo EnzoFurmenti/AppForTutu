@@ -72,7 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="⇄"/>
                                 <connections>
-                                    <action selector="ReverseActionButton:" destination="DTB-U6-Ru1" eventType="touchUpInside" id="lHZ-CX-NNi"/>
+                                    <action selector="ReverseStationNameButton:" destination="DTB-U6-Ru1" eventType="touchUpInside" id="VsK-z2-uSi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Станция отправления" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucg-RB-07J">
@@ -143,11 +143,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button" image="calendar-10.png"/>
                                 <connections>
-                                    <action selector="infoButton:" destination="DTB-U6-Ru1" eventType="touchUpInside" id="wvK-qb-PG3"/>
+                                    <action selector="DateActionButton:" destination="DTB-U6-Ru1" eventType="touchUpInside" id="wPO-TA-EMs"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-bj-an5">
-                                <rect key="frame" x="290" y="115" width="20" height="20"/>
+                                <rect key="frame" x="290" y="129" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,7 +179,7 @@
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="leading" secondItem="bHK-sR-eEh" secondAttribute="trailing" constant="8" symbolic="YES" id="n0S-rR-NeM">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerY" secondItem="Lge-pE-4fg" secondAttribute="centerY" constant="-175" id="uEg-X0-0dt"/>
+                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerY" secondItem="Lge-pE-4fg" secondAttribute="centerY" constant="-161" id="uEg-X0-0dt"/>
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="trailing" secondItem="Eee-YX-fuo" secondAttribute="trailing" id="zbh-IN-z3A"/>
                         </constraints>
                     </view>

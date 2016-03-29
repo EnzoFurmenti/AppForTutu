@@ -10,8 +10,9 @@
 //Добавление action,outlets,делегатов и протоколов таблицы и controls
 @interface TimeTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
-- (IBAction)infoButton:(UIButton *)sender;
+- (IBAction)DateActionButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *ActivityIndicator;
+
 
 @property (weak, nonatomic) IBOutlet UITextField *StationFromField;
 @property (weak, nonatomic) IBOutlet UITextField *StationToField;
@@ -20,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelDate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *DatePicker;
 
-- (IBAction)ReverseActionButton:(UIButton *)sender;
-
-
+- (IBAction)ReverseStationNameButton:(UIButton *)sender;
 
 @end

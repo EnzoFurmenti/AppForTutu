@@ -19,13 +19,14 @@
 @property(strong,nonatomic) NSString *FromOrTo;
 @property(strong,nonatomic) NSOperation *CurrentOperation;
 @property(strong,nonatomic) NSOperationQueue *CurrentOperationQueue;
+//@property(strong,nonatomic) UIRefreshControl *RefreshControl;
 
 @end
 
 @implementation TimeTableViewController
 
 
-
+#pragma mark - UIViewController -
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Установка делегатов
@@ -45,7 +46,19 @@
     self.StationToField.clearButtonMode = UITextFieldViewModeUnlessEditing;
     [self.ActivityIndicator stopAnimating];
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
+//Переоопеределение init для того, чтобы возращался объект класса к которому отправляется сообщение  init, а не его superclass
+-(instancetype)init{
+    self = [super init];
+    return self;
+}
+
+
+#pragma mark - Обработка get свойств -
 - (NSArray *)arraycityFrom{
     if(!_arraycityFrom)
         _arraycityFrom = [[NSArray alloc]init];
@@ -62,12 +75,9 @@
         _arraycities = [[NSArray alloc]init];
     return _arraycities;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
+#pragma mark - UITableViewDelegate.Методы обработки таблицы -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if([self.arraycities count] == 0)
         return 0;
@@ -76,6 +86,7 @@
     //return [stationarray count];
     return [stationarray count];
 }
+
 //Обработка ссекций и строк в таблице
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if([self.arraycities count])
@@ -83,7 +94,7 @@
     return 0;
 }
 
-
+//Вывод названия секции
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if([self.arraycities count] == 0)
         return @"";
@@ -93,7 +104,8 @@
     NSString *HeaderTitle = [NSString localizedStringWithFormat:@"%@-%@", cityTitle, countryTitle];
     return HeaderTitle;
 }
-
+//Вывод данных строк
+//Вторичная бработка прототипов ячеек, которые скрылись под экран
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     
@@ -112,63 +124,68 @@
     return cell;
 }
 
-
-
-//Переоопеределение init для того, чтобы возращался объект класса к которому отправляется сообщение  init, а не его superclass
--(instancetype)init{
-    self = [super init];
-    return self;
-}
-// Обработка даты
-- (void) UIDateCreate{
-    if(self.DatePicker.hidden)
-    {
-        self.DatePicker.hidden = NO;
-        self.labelDate.hidden = YES;
-    }
-    else
-    {
+// Обработка кнопки информация в строках таблицы
+// По нажатию кнопки появляется всплывающее окно с информацией о станции
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
+    NSDictionary *station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
+    
+    NSString *CountryTitle = [station objectForKey:@"countryTitle"];
+    NSString *CityTitle = [Dictionary objectForKey:@"cityTitle"];
+    NSDictionary *point = [station objectForKey:@"point"];
+    double latitude = [[point objectForKey:@"latitude"] doubleValue];
+    double longitude = [[point objectForKey:@"longitude"] doubleValue];
+    
+    //доработать форматирование строки!!!
+    NSString *StationParam = [NSString stringWithFormat:@"\rСтрана: %@\nГород: %@\nКоординаты:\n\t\t\t%.14f,\n\t\t\t%.14f",CountryTitle,CityTitle,latitude,longitude];
+    NSString *stationTitle = [station objectForKey:@"stationTitle"];
+    
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Информация:\n%@",stationTitle] message:[NSString stringWithFormat:@"%@\n\r\rВыбрать станцию?",StationParam ] preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *defaultActionClose = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        self.DatePicker.hidden = YES;
-        self.labelDate.hidden = NO;
-        NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-        [dateformatter setDateFormat:@"dd.MM.yyyy"];
-        if([self.DatePicker.date timeIntervalSinceDate: [NSDate date]] < 0)
-        {
-            self.labelDate.text = [dateformatter stringFromDate:[NSDate date]];
-            self.DatePicker.date = [NSDate date];
-        }
-        else
-        {
-            self.labelDate.text = [dateformatter stringFromDate:self.DatePicker.date];
-        }
-
-        NSLog(@"true");
-    }
-
+    }];
+    
+    UIAlertAction *defaultActionOK = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self AllertAction:stationTitle];
+    }];
+    
+    
+    [alertViewController addAction:defaultActionClose];
+    [alertViewController addAction:defaultActionOK];
+    
+    [self presentViewController:alertViewController animated:NO completion:^{
+        
+    }];
 }
-//Переделать название кнопки
-- (IBAction)infoButton:(UIButton *)sender {
-    [self UIDateCreate];
+//Обработка нажатия на строку таблицы
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *Dictionary;
+    if([self.FromOrTo isEqual: @"citiesFrom"])
+    {
+        Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
+        NSDictionary *Station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
+        self.StationFromField.text = [Station objectForKey:@"stationTitle"];
+        [self UIUpdate:self.StationFromField];
     }
+    if([self.FromOrTo isEqual: @"citiesTo"])
+    {
+        Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
+        NSDictionary *Station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
+        self.StationToField.text = [Station objectForKey:@"stationTitle"];
+        [self UIUpdate:self.StationToField];
+    }
+    
+}
 
-//Обновление таблицы в многопоточном/обычном режиме
+//Обновление таблицы в многопоточном режиме
 - (void)UIUpdate:(UITextField *)textField{
-   [self.CurrentOperation cancel];
+    [self.CurrentOperation cancel];
     [self.ActivityIndicator startAnimating];
     if(textField == self.StationFromField)
     {
         self.FromOrTo = @"citiesFrom";
-       /* dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
-        dispatch_async(queue, ^{
-            NSArray *array = [SData SearchStationCities:[SData citiesFrom] StringForSearch:self.StationFromField.text];
-                self.arraycities = array;
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.MyTableView reloadData];
-            });
-            [self.ActivityIndicator stopAnimating];
-        });*/
-                //self.CurrentOperation = nil;
         self.CurrentOperation = [NSBlockOperation blockOperationWithBlock:^{
             NSArray *array = [SData SearchStationCities:[SData citiesFrom] StringForSearch:self.StationFromField.text];
             dispatch_sync(dispatch_get_main_queue(), ^{
@@ -177,52 +194,30 @@
                 self.CurrentOperation = nil;
                 [self.ActivityIndicator stopAnimating];
             });
-            NSLog(@"self.ActivityIndicator stopAnimating");
         }];
         dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
         dispatch_async(queue, ^{[self.CurrentOperation start];});
-        //dispatch_queue_t dispatch_queue_t_other = dispatch_queue_create("name", NULL);
-        //dispatch_async(dispatch_queue_t_other, ^{[self.CurrentOperation start];});
     }
     if(textField == self.StationToField)
     {
-         self.FromOrTo = @"citiesTo";
-         self.arraycities = [SData SearchStationCities:[SData citiesTo] StringForSearch:self.StationToField.text];
-        [self.MyTableView reloadData];
+        self.FromOrTo = @"citiesTo";
+        self.CurrentOperation = [NSBlockOperation blockOperationWithBlock:^{
+            NSArray *array = [SData SearchStationCities:[SData citiesTo] StringForSearch:self.StationToField.text];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                self.arraycities = array;
+                [self.MyTableView reloadData];
+                self.CurrentOperation = nil;
+                [self.ActivityIndicator stopAnimating];
+            });
+        }];
+        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(queue, ^{[self.CurrentOperation start];});
+        
+        // self.arraycities = [SData SearchStationCities:[SData citiesTo] StringForSearch:self.StationToField.text];
+        // [self.MyTableView reloadData];
     }
-   // [self.ActivityIndicator stopAnimating];
+    // [self.ActivityIndicator stopAnimating];
 }
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    //[self.StationFromField returnKeyType];
-    //[self textFieldShouldReturn:self.StationFromField];
-    if(![textField.text isEqualToString:@""])
-        [self UIUpdate:textField];
-}
-
-//Обработка Action полей ввода и кнопки
-- (IBAction)StationFromActionField:(UITextField *)sender {
-    [self UIUpdate:sender];
-}
-
-- (IBAction)StationToActionField:(UITextField *)sender {
-    [self UIUpdate:sender];
-}
-
-- (IBAction)ReverseActionButton:(UIButton *)sender {
-    NSString *stationFrom = self.StationFromField.text;
-    NSString *stationTo = self.StationToField.text;
-    self.StationFromField.text = stationTo;
-    self.StationToField.text = stationFrom;
-    if([self.FromOrTo isEqual: @"citiesFrom"])
-    {
-        [self UIUpdate:self.StationFromField];
-    }
-    else
-    {
-        [self UIUpdate:self.StationToField];
-    }
-}
-//Обработка Action полей ввода и кнопки
 
 //Получение словаря с данными станции по индекцу таблицы
 - (NSDictionary *)getDataByStation:(NSIndexPath *)indexPath{
@@ -246,61 +241,7 @@
     return nil;
 }
 
-//Обработка нажатия на строку таблицы
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *Dictionary;
-    if([self.FromOrTo isEqual: @"citiesFrom"])
-    {
-        Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
-        NSDictionary *Station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
-        self.StationFromField.text = [Station objectForKey:@"stationTitle"];
-        [self UIUpdate:self.StationFromField];
-    }
-    if([self.FromOrTo isEqual: @"citiesTo"])
-    {
-        Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
-        NSDictionary *Station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
-        self.StationToField.text = [Station objectForKey:@"stationTitle"];
-        [self UIUpdate:self.StationToField];
-    }
-    
-}
 
-// Обработка кнопки информация в строках таблицы
-// По нажатию кнопки появляется всплывающее окно с информацией о станции
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *Dictionary = [[NSDictionary alloc] initWithDictionary:[self getDataByStation:indexPath]];
-    NSDictionary *station = [[NSDictionary alloc] initWithDictionary:[Dictionary objectForKey:@"station"]];
-    
-    NSString *CountryTitle = [station objectForKey:@"countryTitle"];
-    NSString *CityTitle = [Dictionary objectForKey:@"cityTitle"];
-    NSDictionary *point = [station objectForKey:@"point"];
-    double latitude = [[point objectForKey:@"latitude"] doubleValue];
-    double longitude = [[point objectForKey:@"longitude"] doubleValue];
-    
-    //доработать форматирование строки!!!
-    NSString *StationParam = [NSString stringWithFormat:@"\rСтрана: %@\nГород: %@\nКоординаты:\n\t\t\t%.14f,\n\t\t\t%.14f",CountryTitle,CityTitle,latitude,longitude];
-    NSString *stationTitle = [station objectForKey:@"stationTitle"];
-
-    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Информация:\n%@",stationTitle] message:[NSString stringWithFormat:@"%@\n\r\rВыбрать станцию?",StationParam ] preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *defaultActionClose = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
-    }];
-    
-    UIAlertAction *defaultActionOK = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
-        [self AllertAction:stationTitle];
-    }];
-    
-    
-    [alertViewController addAction:defaultActionClose];
-    [alertViewController addAction:defaultActionOK];
-    
-    [self presentViewController:alertViewController animated:NO completion:^{
-
-    }];
-}
 //Обработка  нажатия UIAlertAction "OK"
 - (void)AllertAction:(NSString *)stationTitle{
     if([self.FromOrTo isEqual: @"citiesFrom"])
@@ -314,6 +255,73 @@
         [self UIUpdate:self.StationToField];
     }
 }
+
+
+#pragma mark - UIDatePicker.Методы обработки -
+// Обработка даты
+- (void) UIDateCreate{
+    if(self.DatePicker.hidden)
+    {
+        self.DatePicker.hidden = NO;
+        self.labelDate.hidden = YES;
+    }
+    else
+    {
+        
+        self.DatePicker.hidden = YES;
+        self.labelDate.hidden = NO;
+        NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+        [dateformatter setDateFormat:@"dd.MM.yyyy"];
+        if([self.DatePicker.date timeIntervalSinceDate: [NSDate date]] < 0)
+        {
+            self.labelDate.text = [dateformatter stringFromDate:[NSDate date]];
+            self.DatePicker.date = [NSDate date];
+        }
+        else
+        {
+            self.labelDate.text = [dateformatter stringFromDate:self.DatePicker.date];
+        }
+    }
+
+}
+//Вывод даты
+- (IBAction)DateActionButton:(UIButton *)sender {
+    [self UIDateCreate];
+    }
+
+#pragma mark - UITextFieldDelegate и обработка Action UITextField -
+//Обработка начала редактирования текстового поля
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    //[self.StationFromField returnKeyType];
+    //[self textFieldShouldReturn:self.StationFromField];
+    if(![textField.text isEqualToString:@""])
+        [self UIUpdate:textField];
+}
+
+//Обработка Action полей ввода и кнопки
+- (IBAction)StationFromActionField:(UITextField *)sender {
+    [self UIUpdate:sender];
+}
+
+- (IBAction)StationToActionField:(UITextField *)sender {
+    [self UIUpdate:sender];
+}
+// Обмен названиями станций между полями ввода
+- (IBAction)ReverseStationNameButton:(UIButton *)sender {
+    NSString *stationFrom = self.StationFromField.text;
+    NSString *stationTo = self.StationToField.text;
+    self.StationFromField.text = stationTo;
+    self.StationToField.text = stationFrom;
+    if([self.FromOrTo isEqual: @"citiesFrom"])
+    {
+        [self UIUpdate:self.StationFromField];
+    }
+    else
+    {
+        [self UIUpdate:self.StationToField];
+    }
+}
+
 
 //Обработка нажатия клавиши Return на клавиатуре
 // Если выбраны "от" и "до" станции с одинаковым значением появляется сообщение
@@ -339,6 +347,7 @@
     }
     return YES;
 }
+#pragma mark - UIResponder -
 // По нажатию на пустое место на экране выбора станции убирается клавиатура
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     for(UIView* view in self.view.subviews)
