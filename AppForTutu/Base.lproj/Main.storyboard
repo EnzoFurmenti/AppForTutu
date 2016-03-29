@@ -146,6 +146,9 @@
                                     <action selector="infoButton:" destination="DTB-U6-Ru1" eventType="touchUpInside" id="wvK-qb-PG3"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-bj-an5">
+                                <rect key="frame" x="290" y="115" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -166,6 +169,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="65"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="68g-EG-CO5" secondAttribute="bottom" constant="20" symbolic="YES" id="eg1-ag-Lcn"/>
+                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerX" secondItem="Lge-pE-4fg" secondAttribute="centerX" id="eid-zI-gjn"/>
                             <constraint firstItem="68g-EG-CO5" firstAttribute="leading" secondItem="Lge-pE-4fg" secondAttribute="leadingMargin" id="hhR-ZF-CLs"/>
                             <constraint firstItem="AqZ-7q-UaM" firstAttribute="centerY" secondItem="bHK-sR-eEh" secondAttribute="centerY" id="jB7-0X-3sf">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-3.5"/>
@@ -175,6 +179,7 @@
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="leading" secondItem="bHK-sR-eEh" secondAttribute="trailing" constant="8" symbolic="YES" id="n0S-rR-NeM">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerY" secondItem="Lge-pE-4fg" secondAttribute="centerY" constant="-175" id="uEg-X0-0dt"/>
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="trailing" secondItem="Eee-YX-fuo" secondAttribute="trailing" id="zbh-IN-z3A"/>
                         </constraints>
                     </view>
@@ -182,6 +187,7 @@
                         <barButtonItem key="backBarButtonItem" title="Станции" id="uZs-2l-dHQ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="ActivityIndicator" destination="h4Q-bj-an5" id="ecx-KM-lwD"/>
                         <outlet property="DatePicker" destination="fBY-Lf-lV8" id="wFq-9L-oFc"/>
                         <outlet property="MyTableView" destination="68g-EG-CO5" id="Nue-4d-b1E"/>
                         <outlet property="StationFromField" destination="ucg-RB-07J" id="CX0-g7-e7A"/>

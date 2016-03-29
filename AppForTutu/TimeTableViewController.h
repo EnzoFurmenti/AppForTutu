@@ -11,6 +11,7 @@
 @interface TimeTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
 - (IBAction)infoButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *ActivityIndicator;
 
 @property (weak, nonatomic) IBOutlet UITextField *StationFromField;
 @property (weak, nonatomic) IBOutlet UITextField *StationToField;

@@ -55,8 +55,6 @@
             if(array)
             {
                 NSDictionary *Dictionary = nil;
-                /*if(!ArrayTotalcities)
-                    ArrayTotalcities = [[NSMutableArray alloc]init];*/
                 NSString *countryTitle = [citiesDictionary objectForKey:@"countryTitle"];
                 NSString *cityTitle = [citiesDictionary objectForKey:@"cityTitle"];
                 NSString *cityID = [citiesDictionary objectForKey:@"cityId"];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961333C81CA9480D00356CAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961333C71CA9480D00356CAC /* Images.xcassets */; };
 		96195B011C77055400C5D0C2 /* allStation.json in Resources */ = {isa = PBXBuildFile; fileRef = 96195B001C77055400C5D0C2 /* allStation.json */; };
 		96745D261C75E5B800710530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D251C75E5B800710530 /* main.m */; };
 		96745D291C75E5B800710530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96745D281C75E5B800710530 /* AppDelegate.m */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961333C71CA9480D00356CAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		96195B001C77055400C5D0C2 /* allStation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = allStation.json; path = ../allStation.json; sourceTree = "<group>"; };
 		96745D211C75E5B800710530 /* AppForTutu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppForTutu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96745D251C75E5B800710530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				96745D301C75E5B800710530 /* Assets.xcassets */,
 				96745D321C75E5B800710530 /* LaunchScreen.storyboard */,
 				96745D351C75E5B800710530 /* Info.plist */,
+				961333C71CA9480D00356CAC /* Images.xcassets */,
 				96745D241C75E5B800710530 /* Supporting Files */,
 			);
 			path = AppForTutu;
@@ -314,6 +317,7 @@
 				96745D311C75E5B800710530 /* Assets.xcassets in Resources */,
 				96E379BE1CA2C0D900DA9B84 /* tutu29.png in Resources */,
 				96E379B11CA2BD8F00DA9B84 /* Main.storyboard in Resources */,
+				961333C81CA9480D00356CAC /* Images.xcassets in Resources */,
 				96E379BD1CA2C0D900DA9B84 /* tutu60-2.png in Resources */,
 				96195B011C77055400C5D0C2 /* allStation.json in Resources */,
 			);
@@ -485,7 +489,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppForTutu/Info.plist;
@@ -500,7 +503,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppForTutu/Info.plist;

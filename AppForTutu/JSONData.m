@@ -41,8 +41,8 @@
     //загрузка данных из сети
     //Возможно использовать данный способ загрузки файла при наличие сети
     //Не доработан индикатор прогресс-бар
-    //[self getDataOfInet];
-   // DatafromFileResource =  self.data;
+    [self getDataOfInet];
+    DatafromFileResource =  self.data;
     //если данных нет
     if([DatafromFileResource bytes] == NULL || DatafromFileResource == nil)
     {
@@ -73,23 +73,29 @@
     return DatafromFileResource;
 }
 // Получение данных из сети
+// Доработать!!!
 - (void) getDataOfInet{
-    NSURL *nsURL = [NSURL URLWithString:@"http://localhost:8888/allStations.json"];
+   /* NSURL *nsURL = [NSURL URLWithString:URLstringFile];
     NSURLRequest *nsURLrequest = [NSURLRequest requestWithURL:nsURL
                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                            timeoutInterval:60.0];
-    //NSConnection *nsConnect = [NSURLConnection connectionWithRequest:nsURLrequest delegate:self];
-   // if (nsConnect)
-   // {
-       // self.data = [NSData data];
+    NSConnection *nsConnect = [NSURLConnection connectionWithRequest:nsURLrequest delegate:self];
+    if (nsConnect)
+    {
+        self.data = [NSData data];*/
         self.data = [NSData dataWithContentsOfURL:[NSURL URLWithString:URLstringFile]];
-       // NSString *str;
+    
+    
+      /* NSString *str;
         NSURLSessionConfiguration *Configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:Configuration];
         NSURLSessionDownloadTask *task;
         task = [session downloadTaskWithRequest:nsURLrequest completionHandler:^(NSURL * locationfile, NSURLResponse * response, NSError *  error) {
-
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.data = [NSData dataWithContentsOfURL:locationfile];
+            });
         }];
+    [task resume];*/
    // }
    //  else
    //  {

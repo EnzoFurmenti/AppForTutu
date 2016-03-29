@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Установка делегатов
     [self.MyTableView setDelegate:self];
     [self.MyTableView setDataSource:self];
     [self.StationFromField setDelegate:self];
@@ -42,7 +43,8 @@
     
     self.StationFromField.clearButtonMode = UITextFieldViewModeUnlessEditing;
     self.StationToField.clearButtonMode = UITextFieldViewModeUnlessEditing;
-    }
+    [self.ActivityIndicator stopAnimating];
+}
 
 - (NSArray *)arraycityFrom{
     if(!_arraycityFrom)
@@ -152,23 +154,35 @@
 
 //Обновление таблицы в многопоточном/обычном режиме
 - (void)UIUpdate:(UITextField *)textField{
-    [self.CurrentOperation cancel];
+   [self.CurrentOperation cancel];
+    [self.ActivityIndicator startAnimating];
     if(textField == self.StationFromField)
     {
-        
         self.FromOrTo = @"citiesFrom";
-        //self.CurrentOperation = self.CurrentOperationQueue;
+       /* dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(queue, ^{
+            NSArray *array = [SData SearchStationCities:[SData citiesFrom] StringForSearch:self.StationFromField.text];
+                self.arraycities = array;
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.MyTableView reloadData];
+            });
+            [self.ActivityIndicator stopAnimating];
+        });*/
+                //self.CurrentOperation = nil;
         self.CurrentOperation = [NSBlockOperation blockOperationWithBlock:^{
             NSArray *array = [SData SearchStationCities:[SData citiesFrom] StringForSearch:self.StationFromField.text];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 self.arraycities = array;
                 [self.MyTableView reloadData];
                 self.CurrentOperation = nil;
-            
+                [self.ActivityIndicator stopAnimating];
             });
+            NSLog(@"self.ActivityIndicator stopAnimating");
         }];
-        dispatch_queue_t dispatch_queue_t_other = dispatch_queue_create("name", NULL);
-        dispatch_async(dispatch_queue_t_other, ^{[self.CurrentOperation start];});
+        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(queue, ^{[self.CurrentOperation start];});
+        //dispatch_queue_t dispatch_queue_t_other = dispatch_queue_create("name", NULL);
+        //dispatch_async(dispatch_queue_t_other, ^{[self.CurrentOperation start];});
     }
     if(textField == self.StationToField)
     {
@@ -176,11 +190,13 @@
          self.arraycities = [SData SearchStationCities:[SData citiesTo] StringForSearch:self.StationToField.text];
         [self.MyTableView reloadData];
     }
+   // [self.ActivityIndicator stopAnimating];
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     //[self.StationFromField returnKeyType];
     //[self textFieldShouldReturn:self.StationFromField];
-    [self UIUpdate:textField];
+    if(![textField.text isEqualToString:@""])
+        [self UIUpdate:textField];
 }
 
 //Обработка Action полей ввода и кнопки
@@ -261,32 +277,66 @@
     NSDictionary *point = [station objectForKey:@"point"];
     double latitude = [[point objectForKey:@"latitude"] doubleValue];
     double longitude = [[point objectForKey:@"longitude"] doubleValue];
-    NSString *StationParam = [NSString stringWithFormat:@"Страна: %@\n Город: %@\nКоординаты:%.14f,\n%.14f",CountryTitle,CityTitle,latitude,longitude];
+    
+    //доработать форматирование строки!!!
+    NSString *StationParam = [NSString stringWithFormat:@"\rСтрана: %@\nГород: %@\nКоординаты:\n\t\t\t%.14f,\n\t\t\t%.14f",CountryTitle,CityTitle,latitude,longitude];
     NSString *stationTitle = [station objectForKey:@"stationTitle"];
-    //Доработать!!!!!!!!!!!!!
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Информация:\n%@",stationTitle]
-                                                    message:StationParam
-                                                   delegate:nil
-                                          cancelButtonTitle:@"close"
-                                          otherButtonTitles:nil];
-    [alertView show];
+
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Информация:\n%@",stationTitle] message:[NSString stringWithFormat:@"%@\n\r\rВыбрать станцию?",StationParam ] preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *defaultActionClose = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    
+    UIAlertAction *defaultActionOK = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        [self AllertAction:stationTitle];
+    }];
+    
+    
+    [alertViewController addAction:defaultActionClose];
+    [alertViewController addAction:defaultActionOK];
+    
+    [self presentViewController:alertViewController animated:NO completion:^{
+
+    }];
 }
+//Обработка  нажатия UIAlertAction "OK"
+- (void)AllertAction:(NSString *)stationTitle{
+    if([self.FromOrTo isEqual: @"citiesFrom"])
+    {
+        self.StationFromField.text = stationTitle;
+        [self UIUpdate:self.StationFromField];
+    }
+    else
+    {
+        self.StationToField.text = stationTitle;
+        [self UIUpdate:self.StationToField];
+    }
+}
+
 //Обработка нажатия клавиши Return на клавиатуре
-// Если выбраны от и до станции с одинаковым значением появляется сообщение
-//"Выбраны одинаковые станции"
+// Если выбраны "от" и "до" станции с одинаковым значением появляется сообщение
+//"Выбраны одинаковые станции.Укажите другую станцию."
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if([self.StationFromField.text isEqualToString:self.StationToField.text])
     {
-        //Доработать!!!!!!!!!!!!!!!!
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Внимание"
-                                                            message:@"Выбраны одинаковые станции"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"close"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Выбраны одинаковые станции. Укажите другую станцию."preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertViewController addAction:defaultAction];
+        [self presentViewController:alertViewController animated:YES completion:^{
+            textField.text = @"";
+        }];
     }
-
-    [textField resignFirstResponder];
+    else
+    {
+    
+        [textField resignFirstResponder];
+    }
     return YES;
 }
 // По нажатию на пустое место на экране выбора станции убирается клавиатура
