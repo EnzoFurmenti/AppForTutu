@@ -19,7 +19,7 @@
 @property(strong,nonatomic) NSString *FromOrTo;
 @property(strong,nonatomic) NSOperation *CurrentOperation;
 @property(strong,nonatomic) NSOperationQueue *CurrentOperationQueue;
-//@property(strong,nonatomic) UIRefreshControl *RefreshControl;
+//@property(assign,nonatomic) CGRect keyBoardBounds;
 
 @end
 
@@ -27,6 +27,7 @@
 
 
 #pragma mark - UIViewController -
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Установка делегатов
@@ -45,6 +46,17 @@
     self.StationFromField.clearButtonMode = UITextFieldViewModeUnlessEditing;
     self.StationToField.clearButtonMode = UITextFieldViewModeUnlessEditing;
     [self.ActivityIndicator stopAnimating];
+    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillShowNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CreateFrameByTableWillWhenShownKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+   //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CreateFrameByTableWhenWillHideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CreateFrameByTableWhenWillShownKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CreateFrameByTableWhenWillHideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+
+}
+- (void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -75,7 +87,6 @@
         _arraycities = [[NSArray alloc]init];
     return _arraycities;
 }
-
 
 #pragma mark - UITableViewDelegate.Методы обработки таблицы -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -195,7 +206,7 @@
                 [self.ActivityIndicator stopAnimating];
             });
         }];
-        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate.StationFrom", DISPATCH_QUEUE_SERIAL);
         dispatch_async(queue, ^{[self.CurrentOperation start];});
     }
     if(textField == self.StationToField)
@@ -210,7 +221,7 @@
                 [self.ActivityIndicator stopAnimating];
             });
         }];
-        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate", DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_t queue = dispatch_queue_create("com.AppForTutu.queueUIUpdate.StationTo", DISPATCH_QUEUE_SERIAL);
         dispatch_async(queue, ^{[self.CurrentOperation start];});
         
         // self.arraycities = [SData SearchStationCities:[SData citiesTo] StringForSearch:self.StationToField.text];
@@ -257,6 +268,36 @@
 }
 
 
+- (void)CreateFrameByTableWhenWillShownKeyBoard:(NSNotification *)notification{
+    NSDictionary *NotificationUserInfo = [notification userInfo];
+    NSValue *rect =[NotificationUserInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyBoardBounds;
+    [rect getValue:&keyBoardBounds];
+    [self ResizeFrame:YES AnimationDuration:0.475f newFrame:keyBoardBounds];
+}
+
+- (void)CreateFrameByTableWhenWillHideKeyBoard:(NSNotification *)notification{
+    CGRect aplicationframe = [[UIScreen mainScreen] bounds];
+    CGRect frame = self.view.frame;
+    frame.size.height = aplicationframe.size.height;
+    [self ResizeFrame:NO AnimationDuration:0.1f newFrame:frame];
+}
+
+- (void) ResizeFrame:(BOOL)ShownKeyBoard AnimationDuration:(NSTimeInterval)AnimationDuration newFrame:(CGRect)newFrame{
+    CGRect aplicationframe = [[UIScreen mainScreen] bounds];
+    CGRect frame = self.view.frame;
+    frame.size.height = aplicationframe.size.height;
+    if(ShownKeyBoard)
+        frame.size.height = aplicationframe.size.height - newFrame.size.height;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:AnimationDuration];//0.475];
+    self.view.frame = frame;
+    [UIView commitAnimations];
+   // [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 #pragma mark - UIDatePicker.Методы обработки -
 // Обработка даты
 - (void) UIDateCreate{
@@ -294,7 +335,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     //[self.StationFromField returnKeyType];
     //[self textFieldShouldReturn:self.StationFromField];
-    if(![textField.text isEqualToString:@""])
+    //if(![textField.text ])
         [self UIUpdate:textField];
 }
 
@@ -352,6 +393,10 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     for(UIView* view in self.view.subviews)
         [view resignFirstResponder];
+   /* CGRect aplicationframe = [[UIScreen mainScreen] bounds];
+    CGRect frame = self.view.frame;
+    frame.size.height = aplicationframe.size.height;
+    [self ResizeFrame:NO AnimationDuration:0.1f newFrame:frame];*/
 }
 
 

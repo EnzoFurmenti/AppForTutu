@@ -22,13 +22,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3w-cL-uYi">
                                 <rect key="frame" x="257" y="244" width="86" height="30"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                <state key="normal" title="Расписание"/>
+                                <state key="normal" title="Расписание">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="DTB-U6-Ru1" kind="show" id="yR4-Zq-WWW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdn-KV-Scw">
-                                <rect key="frame" x="252" y="321" width="97" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdn-KV-Scw">
+                                <rect key="frame" x="252" y="324" width="97" height="30"/>
                                 <state key="normal" title="О программе"/>
                                 <connections>
                                     <segue destination="Q43-pV-jmh" kind="show" id="o6h-l4-lCE"/>
@@ -122,6 +124,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="513" height="29.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -147,7 +150,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-bj-an5">
-                                <rect key="frame" x="290" y="129" width="20" height="20"/>
+                                <rect key="frame" x="290" y="140" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,7 +172,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="65"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="68g-EG-CO5" secondAttribute="bottom" constant="20" symbolic="YES" id="eg1-ag-Lcn"/>
-                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerX" secondItem="Lge-pE-4fg" secondAttribute="centerX" id="eid-zI-gjn"/>
+                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerX" secondItem="DUC-zR-CQE" secondAttribute="centerX" id="ga2-KC-QOQ"/>
                             <constraint firstItem="68g-EG-CO5" firstAttribute="leading" secondItem="Lge-pE-4fg" secondAttribute="leadingMargin" id="hhR-ZF-CLs"/>
                             <constraint firstItem="AqZ-7q-UaM" firstAttribute="centerY" secondItem="bHK-sR-eEh" secondAttribute="centerY" id="jB7-0X-3sf">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-3.5"/>
@@ -179,7 +182,7 @@
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="leading" secondItem="bHK-sR-eEh" secondAttribute="trailing" constant="8" symbolic="YES" id="n0S-rR-NeM">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="h4Q-bj-an5" firstAttribute="centerY" secondItem="Lge-pE-4fg" secondAttribute="centerY" constant="-161" id="uEg-X0-0dt"/>
+                            <constraint firstItem="68g-EG-CO5" firstAttribute="top" secondItem="h4Q-bj-an5" secondAttribute="bottom" constant="48" id="upy-HQ-Jod"/>
                             <constraint firstItem="fBY-Lf-lV8" firstAttribute="trailing" secondItem="Eee-YX-fuo" secondAttribute="trailing" id="zbh-IN-z3A"/>
                         </constraints>
                     </view>
